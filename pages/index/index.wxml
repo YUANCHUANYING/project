@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<!-- 幻灯片滚动效果 -->
+<swiper indicator-dots autoplay interval="5000" duration="500">
+  <block wx:for="{{swiperImg}}" wx:key="swiper{{index}}">
+    <swiper-item>
+      <image src="{{item.src}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 新闻列表 -->
+<view id="cloths-list">
+ <view class="list-item" wx:for="{{clothsList}}" wx:for-item="cloths" wx:key="{{cloths.id}}">
+    <image src="{{cloths.poster}}"></image>
+    <text bindtap="goToDetail" data-id="{{cloths.id}}">◇ {{cloths.title}}————{{cloths.add_date}}</text>
+ </view>
+</view>

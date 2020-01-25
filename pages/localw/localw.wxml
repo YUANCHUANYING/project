@@ -1,0 +1,39 @@
+<!-- 当前城市天气 -->
+<view class="wrapper">
+    <view class="now">
+      <view class="now-tmp">
+        <view class="city">{{weather.currentCity}}</view>
+        <view class="tmp">{{weatherData[0].date}}</view>
+        <view class="type">{{weatherData[0].weather}} | PM2.5： {{weather.pm25}}</view>
+        <view class='wind'>风力  |  {{weatherData[0].wind}}</view>
+      </view>
+      <!-- 暖心提示 -->
+      <view class="now-exp">
+        <view class="item-sp"></view>
+        <view class="exp-item">
+          <view class="">{{indexData[0].tipt}}：{{indexData[0].zs}}</view>
+          <view class="">{{indexData[0].des}}</view>
+        </view>
+        <view class="item-sp"></view>
+        <view class="exp-item">
+          <view class="">{{indexData[3].tipt}}：{{indexData[3].zs}} </view>
+          <view class="">{{indexData[3].des}}</view>
+        </view>
+        <view class="item-sp"></view>
+      </view>
+    </view>
+    <!-- 最近几天天气列表 -->
+    <view class="forecast">
+      <block wx:for="{{weatherData}}" wx:for-item="item" wx:key="">
+        <view class="cast-item">
+          <view class="cast-day">{{item.date}}</view>
+          <view class="cast-type">
+            {{item.weather}}
+          </view>
+          <view class="cast-tmp">
+            {{item.temperature}}
+          </view>
+        </view>
+      </block>
+    </view>
+</view>
